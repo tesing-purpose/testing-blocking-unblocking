@@ -15,12 +15,7 @@ func main() {
 	godotenv.Load(".env") // loads .env file
 	githubToken := os.Getenv("GITHUB_TOKEN")
 	repo := "tesing-purpose/testing-blocking-unblocking"
-	commitSHA := os.Getenv("COMMIT_SHA")
 
-	if githubToken == "" || commitSHA == "" {
-		fmt.Println("Error: GITHUB_TOKEN and COMMIT_SHA must be set (e.g. in .env)")
-		os.Exit(1)
-	}
 
 	url := fmt.Sprintf("https://api.github.com/repos/%s/statuses/%s", repo, commitSHA)
 
